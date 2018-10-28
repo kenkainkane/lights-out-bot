@@ -1,7 +1,7 @@
 '''
 ลิ้งค์เกม http://www.logicgamesonline.com/lightsout/
 กดรันรอบแรกปรับให้เห็นทั้งตาราง
-ใส่comment บรรทัดที่ 93 เอาcomment บรรทัดที่ 77 - 91  ออก
+ใส่comment บรรทัดที่ 91 เอาcomment บรรทัดที่ 77 - 89  ออก
 กดรันรอบ2 เริ่มบอท
 '''
 import cv2
@@ -78,11 +78,9 @@ while True:
     if int(yRes) < int(first_y) + 10 and int(yRes) > int(first_y) - 10 :
         if int(xRes) > int(first_x) - 210 and int(xRes) < int(first_x) - 190 :
             pyautogui.click(x=int(xRes+150+240), y=int(yRes-200+240))
-
             pyautogui.click(x=int(xRes+200+240), y=int(yRes-200+240))
         elif int(xRes) > int(first_x) - 160 and int(xRes) < int(first_x) - 140 :
             pyautogui.click(x=int(xRes+240), y=int(yRes-200+240))
-            
             pyautogui.click(x=int(xRes+150+240), y=int(yRes-200+240))
         elif int(xRes) > int(first_x) - 110 and int(xRes) < int(first_x) - 90 :
             pyautogui.click(x=int(xRes+50+240), y=int(yRes-200+240))
