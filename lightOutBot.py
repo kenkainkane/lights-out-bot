@@ -1,10 +1,8 @@
 '''
 ลิ้งค์เกม http://www.logicgamesonline.com/lightsout/
-ก่อนรัน comment บรรทัดที่ 79 - 91  เอา comment บรรทัดที่ 92 ออก
-กดรันรอบแรกปรับให้เห็นทั้งจอ
-ใส่comment บรรทัดที่ 92 เอาcomment บรรทัดที่ 79 - 91  ออก
+กดรันรอบแรกปรับให้เห็นทั้งตาราง
+ใส่comment บรรทัดที่ 93 เอาcomment บรรทัดที่ 77 - 91  ออก
 กดรันรอบ2 เริ่มบอท
-ระวัง !!! ไม่ได้เขียนวิธีปิดเอาไว้ อาศัยความไวสลับจอ ctrl+c
 '''
 import cv2
 import numpy as np
@@ -19,6 +17,7 @@ w = -1
 h = -1
 xRes = -1
 yRes = -1
+cout = 0
 
 def printScreen():
     img = pyautogui.screenshot(
@@ -75,6 +74,7 @@ while True:
     if xyList == [] :
         continue
     first_y, first_x = firstBox(img)
+    '''
     if int(yRes) < int(first_y) + 10 and int(yRes) > int(first_y) - 10 :
         if int(xRes) > int(first_x) - 210 and int(xRes) < int(first_x) - 190 :
             pyautogui.click(x=int(xRes+150+240), y=int(yRes-200+240))
@@ -88,8 +88,10 @@ while True:
             pyautogui.click(x=int(xRes+50+240), y=int(yRes-200+240))
     else :
         pyautogui.click(x=int(xRes+240), y=int(yRes+50+240))
-    #cv2.imshow('All', findAll(img.copy()))
+    '''
+    cout += 1
+    cv2.imshow('All', findAll(img.copy()))
     key = cv2.waitKey(1) & 0xff
-    if key == ord('q'):
+    if cout >= 50:
         break
 cv2.destroyAllWindows()
