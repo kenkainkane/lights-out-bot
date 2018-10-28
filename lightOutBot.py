@@ -11,6 +11,8 @@ import numpy as np
 import pyautogui
 from operator import itemgetter
 
+whiteColor = np.array([255 ,255 ,255])
+grayColor = np.array([153 ,153 ,153])
 image_width = 1440
 image_height = 900
 w = -1
@@ -25,13 +27,10 @@ def printScreen():
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 def findWhite(img):
-    whiteColor = np.array([255 ,255 ,255])
     box = cv2.inRange(img, whiteColor, whiteColor)
     return box
 
 def findAll(img):
-    whiteColor = np.array([255 ,255 ,255])
-    grayColor = np.array([153 ,153 ,153])
     boxWhite = cv2.inRange(img, whiteColor, whiteColor)
     boxGray = cv2.inRange(img, grayColor, grayColor)
     return (boxWhite + boxGray)
